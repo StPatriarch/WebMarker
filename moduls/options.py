@@ -1,6 +1,7 @@
 #! usr/bin/env python3
 from moduls import commands as comm
 import pyshorteners
+import os
 
 
 class Option:
@@ -69,3 +70,8 @@ def getting_user_choice(options):
 	while not correct_choice(choice, options):
 		choice = input('incorrect choice try again...')
 	return options[choice.upper()]
+
+
+def clear_screen():
+	clear = 'cls' if os.name == 'nt' else 'clear'
+	return os.system(clear)
