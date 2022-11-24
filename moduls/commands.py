@@ -12,7 +12,7 @@ import datetime
 '''
 
 
-db = database.DbManager('shopdb')
+db = database.DbManager('webmarker_db')
 
 
 # Կատարում է աղյուսակի ստեղծման, անհրաժեշտ սունյակների ստեղծուման հրամանաը։
