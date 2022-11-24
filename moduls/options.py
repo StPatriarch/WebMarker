@@ -2,6 +2,11 @@
 from moduls import commands as comm
 import pyshorteners
 import os
+'''
+Մոդուլի այս հատվածը հավելվածի աբսրտակցիայի երրորդ մակարդակն է, այն իրականացնում է UserInterface-ի դերը, 
+այլ կերպ ասած հատվածի բոլոր ֆունկցիաների ախատանքը ուղղված է վիզուալացնելու տվյալները վերջնական օգտատիրոջ
+համար։
+'''
 
 
 class Option:
@@ -19,12 +24,14 @@ class Option:
 		return self.name
 
 
+# Այն ընդհունելով մուտքագրված հղումը կարճացնում է այն։
 def shorten_url(url):
 	type_bitly = pyshorteners.Shortener(api_key='95ba5d410ce554921b546629e268f295ba4e3796')
 	short_url = type_bitly.bitly.short(url)
 	return f'{short_url}'
 
 
+# Ընդունում է և մշակում մուտքագրված տվյալենրը, ստուգում դրանց թույլատրելի լինելը։
 def get_user_input(label, required=True):
 	value = input(f'{label}: ') or None
 	if label == 'Url':
@@ -34,6 +41,7 @@ def get_user_input(label, required=True):
 	return value
 
 
+# Նոր մարքի մուտքագրման տվյալների դաշտի ցուցադրում։
 def adding_new_bookmark():
 	return {
 		'Title': get_user_input('Title'),
@@ -42,8 +50,9 @@ def adding_new_bookmark():
 	}
 
 
+# Մարքի ջնջուման հարցումը ապահովող դաշտ։
 def bookmark_deletion():
-	return get_user_input(f'Enter bookmark ID to delete')
+	return get_user_input('Enter bookmark ID to delete')
 
 
 user_options = {
@@ -55,16 +64,19 @@ user_options = {
 }
 
 
+# Կցուցադրի հիմնական Մենյուն ընտրության համար։
 def print_options(options):
 	for short, option in options.items():
 		print(f'({short}) {option}')
 	print()
 
 
+# Կորրեկտ ընտրությունը ապահովող սահմանիչ։
 def correct_choice(choice, options):
 	return choice in options or choice.upper() in options
 
 
+# Ստանում է ընտրությունը և ստուգում նրա ճշգրիտ լինելը։
 def getting_user_choice(options):
 	choice = input('Choice a turn')
 	while not correct_choice(choice, options):
@@ -72,6 +84,7 @@ def getting_user_choice(options):
 	return options[choice.upper()]
 
 
+# Մաքրում է տերմինալի պատուհանը, հարմարավետության համար։
 def clear_screen():
 	clear = 'cls' if os.name == 'nt' else 'clear'
 	return os.system(clear)
