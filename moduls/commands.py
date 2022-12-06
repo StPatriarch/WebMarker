@@ -12,7 +12,7 @@ import datetime
 '''
 
 
-db = database.DbManager('shopdb')
+db = database.DbManager('postgres_2')
 
 
 # Կատարում է աղյուսակի ստեղծման, անհրաժեշտ սունյակների ստեղծուման հրամանաը։
@@ -24,6 +24,8 @@ class CreateTableCommand:
             'url': 'TEXT NOT NULL',
             'notes': 'TEXT',
             'added_date': 'TEXT NOT NULL'})
+
+        return '''SUCCESS ! (Don't need to do it again)'''
 
 
 # Կատարում է նոր մարքի գրանցմումը ավելացնելով գրանցման ժամանակը։

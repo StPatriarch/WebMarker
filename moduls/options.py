@@ -56,6 +56,7 @@ def bookmark_deletion():
 
 
 user_options = {
+	'N': Option('Create a Table', comm.CreateTableCommand()),
 	'A': Option('Add Bookmark', comm.AddBookmarkCommand(), other_cell=adding_new_bookmark),
 	'B': Option('Show list of bookmarks by date', comm.SelectBookmarkCommand()),
 	'T': Option('Show list of bookmarks by title', comm.SelectBookmarkCommand(ordered_by='title')),

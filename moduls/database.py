@@ -36,6 +36,7 @@ class DbManager:
                 '''
         )
 
+
     # Կպատրաստի և կփոխանցի տվյալները
     def add_data(self, table_name, data):
         placeholders = ', '.join(['%s'] * len(data))
