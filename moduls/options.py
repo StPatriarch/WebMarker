@@ -18,7 +18,7 @@ class Option:
 	def choose(self):
 		data = self.other_cell() if self.other_cell else None
 		message = self.command.execute(data) if data else self.command.execute()
-		print(message)
+		return message
 
 	def __str__(self):
 		return self.name
@@ -56,7 +56,6 @@ def bookmark_deletion():
 
 
 user_options = {
-	'N': Option('Create a Table', comm.CreateTableCommand()),
 	'A': Option('Add Bookmark', comm.AddBookmarkCommand(), other_cell=adding_new_bookmark),
 	'B': Option('Show list of bookmarks by date', comm.SelectBookmarkCommand()),
 	'T': Option('Show list of bookmarks by title', comm.SelectBookmarkCommand(ordered_by='title')),

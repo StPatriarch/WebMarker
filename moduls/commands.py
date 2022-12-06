@@ -25,8 +25,6 @@ class CreateTableCommand:
             'notes': 'TEXT',
             'added_date': 'TEXT NOT NULL'})
 
-        return '''SUCCESS ! (Don't need to do it again)'''
-
 
 # Կատարում է նոր մարքի գրանցմումը ավելացնելով գրանցման ժամանակը։
 class AddBookmarkCommand:
@@ -56,3 +54,7 @@ class DeleteBookmarkCommand:
 class QuitCommand:
     def execute(self):
         sys.exit()
+
+
+if __name__ == '__main__':
+    CreateTableCommand()

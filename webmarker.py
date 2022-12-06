@@ -1,7 +1,9 @@
 from moduls import options
+from moduls.commands import CreateTableCommand
 
 
 def loop():
+
     opt = options.user_options
     options.clear_screen()
     options.print_options(opt)
@@ -12,5 +14,6 @@ def loop():
 
 
 if __name__ == '__main__':
+    CreateTableCommand().execute()
     while True:
         loop()
